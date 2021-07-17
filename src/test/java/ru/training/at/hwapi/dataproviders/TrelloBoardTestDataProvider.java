@@ -1,10 +1,10 @@
 package ru.training.at.hwapi.dataproviders;
 
-import java.util.Arrays;
 import org.testng.annotations.DataProvider;
-import ru.training.at.hwapi.tests.TrelloBoardTest;
+import ru.training.at.hwapi.tests.TrelloBoardTests;
 
 public class TrelloBoardTestDataProvider {
+
     @DataProvider
     public static Object[][] boardName() {
         return new Object[][]{
@@ -16,9 +16,9 @@ public class TrelloBoardTestDataProvider {
 
     @DataProvider
     public static Object[][] boardsIDs() {
-        return TrelloBoardTest.getBoardsIDs()
-                              .stream()
-                              .map(id -> new Object[] { id })
-                              .toArray(Object[][]::new);
+        return TrelloBoardTests.getBoardsIDs()
+                               .stream()
+                               .map(id -> new Object[] { id })
+                               .toArray(Object[][]::new);
     }
 }

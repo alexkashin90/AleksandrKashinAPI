@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Trello API Tests Suite">
+    <test verbose="2" name="Trello API Tests">
+        <classes>
+            <class name="ru.training.at.hwapi.tests.TrelloBoardTests"/>
+        </classes>
+    </test>
+</suite>

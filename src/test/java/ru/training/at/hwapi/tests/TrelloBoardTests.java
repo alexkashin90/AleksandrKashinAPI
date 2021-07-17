@@ -6,29 +6,29 @@ import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.startsWith;
 import static ru.training.at.hwapi.data.Constants.DESCRIPTION;
 import static ru.training.at.hwapi.data.Constants.UPDATED;
-import static ru.training.at.hwapi.steps.TrelloBoardTestSteps.createTestBoard;
-import static ru.training.at.hwapi.steps.TrelloBoardTestSteps.deleteBoard;
-import static ru.training.at.hwapi.steps.TrelloBoardTestSteps.getBoardById;
-import static ru.training.at.hwapi.steps.TrelloBoardTestSteps.getDeletedBoard;
-import static ru.training.at.hwapi.steps.TrelloBoardTestSteps.updateBoardsDescriptionById;
-import static ru.training.at.hwapi.steps.TrelloBoardTestSteps.updateBoardsNameById;
+import static ru.training.at.hwapi.tests.steps.TrelloBoardTestSteps.createTestBoard;
+import static ru.training.at.hwapi.tests.steps.TrelloBoardTestSteps.deleteBoard;
+import static ru.training.at.hwapi.tests.steps.TrelloBoardTestSteps.getBoardById;
+import static ru.training.at.hwapi.tests.steps.TrelloBoardTestSteps.getDeletedBoard;
+import static ru.training.at.hwapi.tests.steps.TrelloBoardTestSteps.updateBoardsDescriptionById;
+import static ru.training.at.hwapi.tests.steps.TrelloBoardTestSteps.updateBoardsNameById;
 
 import io.restassured.RestAssured;
 import java.util.ArrayList;
 import java.util.List;
 import org.hamcrest.CoreMatchers;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import ru.training.at.hwapi.beans.TrelloBoard;
 import ru.training.at.hwapi.data.Constants;
 import ru.training.at.hwapi.dataproviders.TrelloBoardTestDataProvider;
 
-public class TrelloBoardTest {
+public class TrelloBoardTests {
 
     private static final List<String> boardsIDs = new ArrayList<>();
     private TrelloBoard testBoard;
 
-    @BeforeSuite
+    @BeforeClass
     public void setUp() {
         RestAssured.baseURI = Constants.BASE_URL;
     }
