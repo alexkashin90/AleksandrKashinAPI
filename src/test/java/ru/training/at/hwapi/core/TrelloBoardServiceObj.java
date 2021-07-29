@@ -13,10 +13,13 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import org.apache.http.HttpStatus;
 import ru.training.at.hwapi.beans.TrelloBoard;
+import ru.training.at.hwapi.data.Background;
 import ru.training.at.hwapi.data.Constants;
+import ru.training.at.hwapi.data.PermissionLevel;
 
 public class TrelloBoardServiceObj {
 
@@ -49,6 +52,16 @@ public class TrelloBoardServiceObj {
 
         public ApiRequestBuilder setName(String name) {
             parameters.put("name", name);
+            return this;
+        }
+
+        public ApiRequestBuilder setPermissionLevel(PermissionLevel permissionLevel) {
+            parameters.put("prefs_permissionLevel", permissionLevel.permissionLevel);
+            return this;
+        }
+
+        public ApiRequestBuilder setBackground(Background background) {
+            parameters.put("prefs_background", background.background);
             return this;
         }
 
@@ -100,5 +113,12 @@ public class TrelloBoardServiceObj {
                 .asString()
                 .trim(),
             new TypeToken<TrelloBoard>() {}.getType());
+    }
+
+    public static List<TrelloBoard> getBoards(Response response) {
+        return new Gson().fromJson(response
+                .asString()
+                .trim(),
+            new TypeToken<List<TrelloBoard>>() {}.getType());
     }
 }
